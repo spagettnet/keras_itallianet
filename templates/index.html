@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Italian Food Recognition using Convolutional Neural Networks</title>
+  
+  
+  
+      <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+ 
+		<h1>Italian Food Recognition using <span>Convolutional Neural Networks</span></h1>
+
+		<div id="debug" style="margin:65px; margin-top:100px;">
+
+			
+			<!-- <input type="color" id="colors">
+			 <input type="number" id="lineWidth" style="width:60px" value="0.2" step="0.1" min="0.1"> -->
+			<input type="text" id="urlBox" value="url" style="">
+			<br/>
+			<span style="color: #4DAF7C; font-weight: 400; font-family: 'Open Sans', Helvetica;	">Paste the URL to your image here!</span>
+		</div>
+
+		<div style="margin-left:175px; margin-top:460px; float:left; position:absolute;">
+			
+			<a href="#" class="myButton"><span style=" font-weight: 400; font-family: 'Open Sans', Helvetica;	"> Predict </span></a>			
+		</div>
+		<div >
+			<h1 id="result" style="margin-right:20px; margin-top:300px;float:left;"><span> </span></h1>
+		</div>
+
+		
+  		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+	    <script type="text/javascript">
+	   		$(".myButton").click(function(){
+		   		var value = document.getElementById('urlBox').value;
+	   			$.ajax({
+	   				type: "POST",
+	   				url: "/predict",
+	   				data: value,
+	   				success: function(data){
+	   					$('#result').text(' Predicted Output: '+data);
+	   				}
+	   			});
+	   		});
+	   
+	   </script>
+</body>
+</html>
