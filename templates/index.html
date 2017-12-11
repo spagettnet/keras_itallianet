@@ -10,6 +10,19 @@
 
 </head>
 
+ <style>
+.textbox { 
+    border: 1px solid #848484; 
+    -webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+    padding-left:10px; 
+    padding-right:10px; 
+  } 
+</style>
 <body>
  
 		<h1>Italian Food Recognition using <span>Convolutional Neural Networks</span></h1>
@@ -25,8 +38,10 @@
 		</div>
 
 		<div style="margin-left:175px; margin-top:460px; float:left; position:absolute;">
-			
-			<a href="#" class="myButton"><span style=" font-weight: 400; font-family: 'Open Sans', Helvetica;	"> Predict </span></a>			
+			<button class="myButton" onclick="add_google_logo()">Predcit</button> 
+		</div>
+		<div>
+			<img id="imageIn" src="https://www.ledr.com/colours/white.jpg" width="128" height="128" style="margin-left:20px; margin-top:300px;float:left;"></img>
 		</div>
 		<div >
 			<h1 id="result" style="margin-right:20px; margin-top:300px;float:left;"><span> </span></h1>
@@ -35,7 +50,17 @@
 		
   		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+  		<script>
+		    function add_google_logo() {
+		        var src = document.getElementById('urlBox').value;
+		        show_image(document.getElementById('urlBox').value);
+		    }
 
+
+		    function show_image(imin) {
+		        document.getElementById("imageIn").src=imin;
+		    }
+  		</script>
 	    <script type="text/javascript">
 	   		$(".myButton").click(function(){
 		   		var value = document.getElementById('urlBox').value;
